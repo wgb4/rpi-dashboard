@@ -10,7 +10,6 @@ def main():
         text = True
     )
 
-    while True:
-        print(cec_process.stdout)
+    print(cec_process.stdout.readline)
 
 main()
