@@ -1,15 +1,13 @@
 import subprocess
 
 def main():
-    tv_address = 0
+    scan_output = run_cec_client("scan")
+    print(scan_output)
 
-    get_tv_status(0)
 
-
-def get_tv_status(tv_address):
+def run_cec_client(command):
     # Run cec-client, scan for devices
-    result = subprocess.run(["cec-client", "-s", "-d", "1"], input="scan\n", text=True, capture_output=True)
-    print(result.stdout)
-
+    result = subprocess.run(["cec-client", "-s", "-d", "1"], input=f"{command}\n", text=True, capture_output=True)
+    return result.stdout
 
 main()
