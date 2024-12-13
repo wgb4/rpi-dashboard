@@ -1,13 +1,16 @@
 import subprocess
 
 def main():
-    scan_output = run_cec_client("scan")
-    print(scan_output)
+    # Start cec-client in background
+    cec_process = subprocess.Popen(
+        ["cec-client", "-s", "-d", "1"],
+        stdin = subprocess.PIPE,
+        stdout = subprocess.PIPE,
+        stderr = subprocess.PIPE,
+        text = True
+    )
 
-
-def run_cec_client(command):
-    # Run cec-client, scan for devices
-    result = subprocess.run(["cec-client", "-s", "-d", "1"], input=f"{command}\n", text=True, capture_output=True)
-    return result.stdout
+    while True:
+        print(cec_process.stdout)
 
 main()
