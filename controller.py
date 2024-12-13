@@ -7,7 +7,7 @@ def main():
     # Wait for cec to be ready for input
     wait_for_ready(cec_process)
 
-    turn_on_tv(cec_process)
+    # turn_on_tv(cec_process)
     turn_off_tv(cec_process)
 
     print("Exiting")
