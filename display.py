@@ -8,7 +8,10 @@ from gi.repository import Gtk, Adw
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Things will go here
+        self.box1 = Gtk.Box()
+        self.set_child(self.box1)
+        self.button = Gtk.Button(label="Hello")
+        self.box1.append(self.button)
 
 class MyApp(Adw.Application):
     def __init__(self, **kwargs):
