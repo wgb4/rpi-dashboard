@@ -10,8 +10,14 @@ class MainWindow(Gtk.ApplicationWindow):
         super().__init__(*args, **kwargs)
         self.box1 = Gtk.Box()
         self.set_child(self.box1)
+
         self.button = Gtk.Button(label="Hello")
         self.box1.append(self.button)
+
+        self.button.connect('clicked', self.hello)
+
+    def hello(self, button):
+        print("hello!")
 
 class MyApp(Adw.Application):
     def __init__(self, **kwargs):
