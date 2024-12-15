@@ -28,5 +28,8 @@ class MyApp(Adw.Application):
         self.win = MainWindow(application=app)
         self.win.present()
 
+        sm = app.get_style_manager()
+        sm.set_color_scheme(Adw.ColorScheme.PREFER_DARK)
+
 app = MyApp(application_id="com.example.GtkApplication")
 app.run(sys.argv)
