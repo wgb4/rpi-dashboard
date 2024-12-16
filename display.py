@@ -8,6 +8,8 @@ from gi.repository import Gtk, Adw
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.maximize()
+
         self.box1 = Gtk.Box()
         self.set_child(self.box1)
 
