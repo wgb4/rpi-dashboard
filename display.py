@@ -8,7 +8,7 @@ from gi.repository import Gtk, Adw
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.maximize()
+        self.set_default_size(1280,720)
 
         self.box1 = Gtk.Box()
         self.set_child(self.box1)
