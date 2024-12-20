@@ -22,6 +22,10 @@ For Raspberry Pi OS (Ubuntu / Debian):
 
 `sudo apt install git python3-gi python3-gi-cairo gir1.2-gtk-4.0 libadwaita-1-dev xserver-xorg-core xserver-xorg-input-evdev xinit x11-xserver-utils xserver-xorg-input-libinput`
 
+Whats installed:
+- Basic X11 Envrionment with input support and utilities
+- Gtk and Adwaita libraries and python packages
+
 Using Raspberry Pi OS Lite with a basic X display:
 -
 This will made a kiosk environment where one app is displayed
