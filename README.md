@@ -14,13 +14,13 @@ https://pygobject.gnome.org
 GNOME Python API Docs:
 https://amolenaar.pages.gitlab.gnome.org/pygobject-docs/index.html
 
-Python Library Installation:
+Required Packages:
 -
 (Following https://pygobject.gnome.org/getting_started.html)
 
 For Raspberry Pi OS (Ubuntu / Debian):
 
-`sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-4.0`
+`sudo apt install git python3-gi python3-gi-cairo gir1.2-gtk-4.0 libadwaita-1-dev xserver-xorg-core xserver-xorg-input-evdev xinit x11-xserver-utils xserver-xorg-input-libinput`
 
 Using Raspberry Pi OS Lite with a basic X display:
 -
@@ -44,7 +44,7 @@ This will made a kiosk environment where one app is displayed
 
   To rotate the touchscreen input:
   
-  - Edit the xorg libinput file in directory: `cd /usr/share/X11/xorg.conf.d/`
+  - Edit the xorg libinput file in directory: `sudo nano /usr/share/X11/xorg.conf.d/40-libinput.conf`
   
   - Find the section that has 'touchscreen' and add the following inside the Section:
   
