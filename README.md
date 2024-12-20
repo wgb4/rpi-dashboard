@@ -1,4 +1,30 @@
+What is this?
+-
+I've been experimenting with my raspberry pi connected to a tv, and came across a protocol called CEC that comes with the HDMI standard, this allows the raspberry pi to connect and perform basic controls (turn on / off) to the tv and devices connected to the tv as well (like consoles)
+
+This made me think about creating an Apple CarPlay looking dashboard interface using a GTK and Adwaita design for a Raspberry Pi Touchscreen 2 that would include basic controls to the connected HDMI CEC devices, basic widgets like 'Now Playing' for my shairport-sync sound system (perhaps with playback controls if I can figure it out)
+
+I also have a headless linux PC running Pop!_OS that I use for game streaming, I want the dashboard to control the PC (start Steam or games) and start a Moonlight stream to the PC. I use USBIP with a Bluetooth USB adapter to send controllers and a bluetooth speaker to the headless PC, I want a single button to be able to start the USBIP passthrough, load the stream, and connect the bluetooth speaker to the PC.
+
+Useful Links:
+-
+PyGObject Docs:
+https://pygobject.gnome.org
+
+GNOME Python API Docs:
+https://amolenaar.pages.gitlab.gnome.org/pygobject-docs/index.html
+
+Python Library Installation:
+-
+(Following https://pygobject.gnome.org/getting_started.html)
+
+For Raspberry Pi OS (Ubuntu / Debian):
+
+`sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-4.0`
+
 Using Raspberry Pi OS Lite with a basic X display:
+-
+This will made a kiosk environment where one app is displayed
 
   To allow ssh users to run `startx`:
   
