@@ -1,10 +1,205 @@
-<CustomBoxLayout>:
-    orientation: 'vertical'
-    BoxLayout:
+<DashboardScreen>:
+    md_bg_color: 0,0,0,1
+    on_touch_down:
+        app.reset_timeout()
+
+    MDBoxLayout:
         orientation: 'vertical'
-        Button:
-            text: "hello"
-    BoxLayout:
-        orientation: 'vertical'
-        Button:
-            text: "boo"
+
+        MDBoxLayout:    ## Status Bar
+            adaptive_height: True
+            orientation: 'horizontal'
+            padding: [10, 10, 10, 0]
+            spacing: 20
+
+            MDLabel:    ## Time
+                id: time_label
+                adaptive_size: True
+                text: "17:28"
+                halign: "left"
+                font_style: "Display"
+                role: "large"
+
+            MDLabel:    ## Date
+                id: date_label
+                adaptive_size: True  
+                text: "Wed 16th Oct"
+                text_color: 1,1,1,0.6
+                halign: "left"
+                font_style: "Display"
+                role: "large"
+
+            MDBoxLayout:    ## Status Bar
+                adaptive_width: False
+
+            MDIconButton:   ## Manual Sleep Button
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                icon: "brightness-6"
+                style: "tonal"
+                size_hint_y: 1
+                width: self.height
+                theme_font_size: "Custom"
+                font_size: "48sp"
+                on_press:
+                    app.to_sleep()
+
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            spacing: 20
+
+            MDBoxLayout:    ## Button Hotbar
+                adaptive_height: True
+                orientation: 'horizontal'
+                spacing: 10
+
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 0.1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [self.height / 2]
+
+                MDIconButton:   ## Start Moonlight
+                    icon: "heart-outline"
+                    style: "tonal"
+                    theme_font_size: "Custom"
+                    font_size: "68sp"
+                    size: "84dp", "84dp"
+                    on_press:
+                        app.start_moonlight()
+
+                
+            MDBoxLayout:
+                adaptive_height: False
+                orientation: 'horizontal'
+                spacing: 20
+
+                MDBoxLayout:    ## Device Controls
+                    adaptive_height: False
+                    adaptive_width: True
+                    orientation: 'vertical'
+
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 0.1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [20]
+
+                    MDBoxLayout:    ## Title Bar
+                        orientation: 'horizontal'
+                        adaptive_height: True
+                        padding: [10, 10, 10, 0]
+                        spacing: 10
+
+                        MDIcon:
+                            icon: "dots-grid"
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                        MDLabel:
+                            text: "Device Controls"
+                        
+                    MDGridLayout:
+                        adaptive_height: True
+                        adaptive_width: True
+                        size_hint_y: 1
+                        width: self.height
+                        rows: 5
+                        cols: 5
+                        padding: 10
+                        spacing: 10
+
+                        MDIconButton:
+                            icon: "monitor"
+                            style: "tonal"
+                            size_hint: 0.2,0.2
+
+                        MDIconButton:
+                            icon: "monitor"
+                            style: "tonal"
+                            size_hint: 0.2,0.2
+
+                MDBoxLayout:    ## Now Playing Tab
+                    adaptive_height: False
+                    orientation: 'vertical'
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 0.1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [20]
+
+                    MDBoxLayout:    ## Title Bar
+                        orientation: 'horizontal'
+                        adaptive_height: True
+                        padding: [10, 10, 10, 0]
+                        spacing: 10
+
+                        MDIcon:
+                            icon: "music"
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                        MDLabel:
+                            text: "Now Playing"
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    MDBoxLayout:    ## Content
+                        adaptive_height: False
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: "CONTENT"
+                            halign: "center"
+                            font_style: "Headline"
+
+<TimeoutScreen>:
+    md_bg_color: 0,0,0,1
+    on_touch_down:
+        app.wake_up()
+
+    MDBoxLayout:
+        orientation: 'horizontal'
+        padding: 30
+
+        MDBoxLayout:    ## Time Side
+            orientation: 'vertical'
+            spacing: 10
+
+            MDLabel:    ## Time
+                id: time_label
+                adaptive_size: True
+                text: "17:28"
+                halign: "center"
+                font_style: "Display"
+                role: "large"
+
+            MDLabel:    ## Date
+                id: date_label
+                adaptive_size: True  
+                text: "Wed 16th Oct"
+                text_color: 1,1,1,0.6
+                halign: "center"
+                font_style: "Display"
+                role: "large"
+
+        MDBoxLayout:    ## Info side
+            orientation: 'vertical'
+            padding: 20
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 0.1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [30]
+
+            MDLabel:
+                text: "OH BOY, I hopes this is evil berger, I say...\nI stood there in shock as my burger started busting a move.\nIt was funky burger."
+                font_style: "Display"
+                role: "small"
